@@ -1,0 +1,49 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/** @var yii\web\View $this */
+/** @var app\models\Transaksi $model */
+
+$this->title = $model->id_transaksi;
+$this->params['breadcrumbs'][] = ['label' => 'Transaksis', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+<div class="transaksi-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a('Update', ['update', 'id_transaksi' => $model->id_transaksi], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id_transaksi' => $model->id_transaksi], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id_transaksi',
+            'id_rekening',
+            'id_vendor',
+            'id_nasabah',
+            'kode_unik',
+            'id_paket',
+            'jumlah',
+            'status',
+            'total_harga',
+            'is_wallet',
+            'id_culinary',
+            'tanggal_jam_pesan',
+            'exec_time',
+            'jumlah_orang',
+        ],
+    ]) ?>
+
+</div>
