@@ -143,6 +143,40 @@ class VendorController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionRating()
+    {
+        $model = Vendor::find()
+        ->orderBy([
+            'rating'=>SORT_DESC,
+           
+        ])
+        ->limit(3)
+        ->all();
+        return $this->asJson(['Restorant' => $model]);
+
+    }
+
+    public function actionJarak()
+    {
+        $model = Vendor::find()
+        ->orderBy([
+            'jarak'=>SORT_ASC,
+           
+        ])
+        ->limit(3)
+        ->all();
+        return $this->asJson(['Restorant' => $model]);
+
+    }
+
+    public function actionVendorall()
+    {
+        $model = Vendor::find()
+        ->all();
+        return $this->asJson(['Restorant' => $model]);
+
+    }
+
     /**
      * Finds the Vendor model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
