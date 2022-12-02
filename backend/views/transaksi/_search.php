@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
+use app\models\Transaksi;
 
 /** @var yii\web\View $this */
 /** @var app\models\TransaksiSearch $model */
@@ -18,15 +21,16 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'id_transaksi') ?>
 
-    <?= $form->field($model, 'id_rekening') ?>
 
-    <?= $form->field($model, 'id_vendor') ?>
-
-    <?= $form->field($model, 'id_nasabah') ?>
-
-    <?= $form->field($model, 'kode_unik') ?>
+    <?= $form->field($model, 'kode_unik')->widget(Select2::classname(), [
+ 'data' => ArrayHelper::map(Transaksi::find()->all(),'id_transaksi','kode_unik'),
+ 'language' => 'en',
+ 'options' => ['placeholder' => 'List Kode'],
+ 'pluginOptions' => [
+ 'allowClear' => true
+ ],
+ ]); ?>
 
     <?php // echo $form->field($model, 'id_paket') ?>
 

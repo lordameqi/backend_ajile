@@ -107,6 +107,13 @@ class PaketController extends Controller
     return parent::beforeAction($action); 
 }
 
+public function actionPaketall()
+    {
+        $model = Paket::find()
+        ->all();
+        return $this->asJson(['Paket' => $model]);
+    }
+
     /**
      * Updates an existing Paket model.
      * If update is successful, the browser will be redirected to the 'view' page.

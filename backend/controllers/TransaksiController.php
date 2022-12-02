@@ -47,6 +47,16 @@ class TransaksiController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionIndex2()
+    {
+        $searchModel = new TransaksiSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index2', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Transaksi model.

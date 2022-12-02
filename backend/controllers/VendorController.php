@@ -171,8 +171,17 @@ class VendorController extends Controller
 
     public function actionVendorall()
     {
-        $model = Vendor::find()
+        $model = Vendor::find()->with(['kategori'])->asArray()
         ->all();
+        return $this->asJson(['Restorant' => $model]);
+
+    }
+
+    public function actionVendorcari($nama)
+    {
+        $model = Vendor::find()
+        ->where(['nama'=>$nama])
+        ->one();
         return $this->asJson(['Restorant' => $model]);
 
     }

@@ -108,6 +108,13 @@ class KategoriRestraurantController extends Controller
     return parent::beforeAction($action); 
 }
 
+public function actionKategoriall()
+    {
+        $model = KategoriRestraurant::find()
+        ->all();
+        return $this->asJson(['Restorant' => $model]);
+    }
+
     /**
      * Updates an existing KategoriRestraurant model.
      * If update is successful, the browser will be redirected to the 'view' page.

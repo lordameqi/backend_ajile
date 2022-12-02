@@ -81,6 +81,15 @@ class JenisTabunganController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionJenistabunganall()
+    {
+       
+
+        $model = JenisTabungan::find()
+        ->all();
+        return $this->asJson(['Jenis_Tabungan' => $model]);
+    }
    
     public function actionCreate2()
     {

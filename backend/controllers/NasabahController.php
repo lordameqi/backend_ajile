@@ -67,6 +67,14 @@ class NasabahController extends Controller
         return $this->asJson(['nasabah' => $this->findModel($id_nasabah),'kedua' => $users]);
     }
 
+    public function actionNasabahaja()
+    {
+        $dbusers = New Nasabah;
+        $users = $dbusers->find()->all();
+
+        return $this->asJson(['nasabah' => $users]);
+    }
+
     /**
      * Creates a new Nasabah model.
      * If creation is successful, the browser will be redirected to the 'view' page.

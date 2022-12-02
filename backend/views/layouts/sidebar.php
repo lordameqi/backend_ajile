@@ -35,30 +35,31 @@
             <?php
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
-                    [
-                        'label' => 'Nasabah',
-                        'icon' => 'fa fa-address-book',
-                        'badge' => '<span class="right badge badge-info">3</span>',
-                        'items' => [
-                            ['label' => 'Informasi Nasabah',  'icon' => 'dot-circle', 'url' => ['nasabah/index']],
-                            ['label' => 'Jenis Tabungan',  'icon' => 'dot-circle', 'url' => ['jenis-tabungan/index']],
-                            ['label' => 'Rekening',  'icon' => 'dot-circle', 'url' => ['rekening/index']],
-                        ]
-                    ],
-                    [
-                        'label' => 'Vendor',
-                        'icon' => ' fa fa-handshake',
-                        'badge' => '<span class="right badge badge-info">3</span>',
-                        'items' => [
-                            ['label' => 'Informasi vendor',  'icon' => 'dot-circle', 'url' => ['vendor/index']],
-                            ['label' => 'Makanan',  'icon' => 'dot-circle', 'url' => ['culinary/index']],
-                            ['label' => 'Paket',  'icon' => 'dot-circle', 'url' => ['paket/index']],
-                            ['label' => 'Kategori Restaurant',  'icon' => 'dot-circle', 'url' => ['kategori-restraurant/index']],
-                        ]
-                    ],
+                    // [
+                    //     'label' => 'Nasabah',
+                    //     'icon' => 'fa fa-address-book',
+                    //     'badge' => '<span class="right badge badge-info">3</span>',
+                    //     'items' => [
+                    //         ['label' => 'Informasi Nasabah',  'icon' => 'dot-circle', 'url' => ['nasabah/index']],
+                    //         ['label' => 'Jenis Tabungan',  'icon' => 'dot-circle', 'url' => ['jenis-tabungan/index']],
+                    //         ['label' => 'Rekening',  'icon' => 'dot-circle', 'url' => ['rekening/index']],
+                    //     ]
+                    // ],
+                    // [
+                    //     'label' => 'Vendor',
+                    //     'icon' => ' fa fa-handshake',
+                    //     'badge' => '<span class="right badge badge-info">3</span>',
+                    //     'items' => [
+                    //         ['label' => 'Informasi vendor',  'icon' => 'dot-circle', 'url' => ['vendor/index']],
+                    //         ['label' => 'Makanan',  'icon' => 'dot-circle', 'url' => ['culinary/index']],
+                    //         ['label' => 'Paket',  'icon' => 'dot-circle', 'url' => ['paket/index']],
+                    //         ['label' => 'Kategori Restaurant',  'icon' => 'dot-circle', 'url' => ['kategori-restraurant/index']],
+                    //     ]
+                    // ],
 
-                    ['label' => 'Transaksi',  'icon' => 'fa fa-archive', 'url' => ['transaksi/index']],
-                    ['label' => 'Chart',  'icon' => 'fa fa-archive', 'url' => ['cart/index']],
+                    ['label' => 'Transaksi',  'icon' => 'fa fa-archive', 'url' => ['transaksi/index2']],
+                    ['label' => 'Testimoni',  'icon' => 'fa fa-bookmark', 'url' => ['testimoni/index']],
+                   // ['label' => 'Chart',  'icon' => 'fa fa-archive', 'url' => ['cart/index']],
                     ['label' => 'User',  'icon' => 'fa fa-child', 'url' => ['user/index']],
                     //['label' => 'Pesanan',  'icon' => 'file-code', 'url' => ['pesanan/index']],
 

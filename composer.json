@@ -24,7 +24,8 @@
         "yiisoft/yii2-bootstrap": "@dev",
         "kartik-v/yii2-krajee-base": "dev-master",
         "kartik-v/yii2-number": "dev-master",
-        "kartik-v/yii2-widget-rating": "dev-master"
+        "kartik-v/yii2-widget-rating": "dev-master",
+        "2amigos/yii2-chartjs-widget": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

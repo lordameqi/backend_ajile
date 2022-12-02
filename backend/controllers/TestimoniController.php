@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use app\models\Rekening;
-use app\models\RekeningSearch;
+use app\models\Testimoni;
+use app\models\TestimoniSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * RekeningController implements the CRUD actions for Rekening model.
+ * TestimoniController implements the CRUD actions for Testimoni model.
  */
-class RekeningController extends Controller
+class TestimoniController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,13 +32,13 @@ class RekeningController extends Controller
     }
 
     /**
-     * Lists all Rekening models.
+     * Lists all Testimoni models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new RekeningSearch();
+        $searchModel = new TestimoniSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -46,32 +46,47 @@ class RekeningController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionTestimoniall()
+    {
+        $model = Testimoni::find()->with(['vendor'])->with(['nasabah'])->asArray()
+        ->all();
+        // print_r($model);
+        // exit();
+        return $this->asJson(['Testimoni' => $model]);
+
+    }
+
+    public function beforeAction($action) 
+{ 
+    $this->enableCsrfValidation = false; 
+    return parent::beforeAction($action); 
+}
 
     /**
-     * Displays a single Rekening model.
-     * @param int $id_rekening Id Rekening
+     * Displays a single Testimoni model.
+     * @param int $id_testimoni Id Testimoni
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id_rekening)
+    public function actionView($id_testimoni)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id_rekening),
+            'model' => $this->findModel($id_testimoni),
         ]);
     }
 
     /**
-     * Creates a new Rekening model.
+     * Creates a new Testimoni model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Rekening();
+        $model = new Testimoni();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id_rekening' => $model->id_rekening]);
+                return $this->redirect(['view', 'id_testimoni' => $model->id_testimoni]);
             }
         } else {
             $model->loadDefaultValues();
@@ -82,53 +97,19 @@ class RekeningController extends Controller
         ]);
     }
 
-    public function actionCreate2()
-    {
-        \Yii::$app->response->format = \yii\web\Response:: FORMAT_JSON;
-        $model = new Rekening();
-        $model->scenario = Rekening::SCENARIO_CREATE;
-        $model->attributes = \yii::$app->request->post();
-        
-        if($model->validate())
-      {
-
-     $model->save();
-       return array('status' => true, 'data'=> 'Rekening record is successfully added');
-      }
-      else
-      {
-       return array('status'=>false,'data'=>$model->getErrors());    
-      }
-
-       
-    }
-    public function beforeAction($action) 
-{ 
-    $this->enableCsrfValidation = false; 
-    return parent::beforeAction($action); 
-}
-
-public function actionRekening()
-{
-    $model = Rekening::find()->with(['nasabah'])->with(['jenisTabungan'])->asArray()
-    ->all();
-    // print_r($model);
-    // exit();
-    return $this->asJson(['rekening' => $model]);
-}
     /**
-     * Updates an existing Rekening model.
+     * Updates an existing Testimoni model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id_rekening Id Rekening
+     * @param int $id_testimoni Id Testimoni
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id_rekening)
+    public function actionUpdate($id_testimoni)
     {
-        $model = $this->findModel($id_rekening);
+        $model = $this->findModel($id_testimoni);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_rekening' => $model->id_rekening]);
+            return $this->redirect(['view', 'id_testimoni' => $model->id_testimoni]);
         }
 
         return $this->render('update', [
@@ -137,29 +118,29 @@ public function actionRekening()
     }
 
     /**
-     * Deletes an existing Rekening model.
+     * Deletes an existing Testimoni model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id_rekening Id Rekening
+     * @param int $id_testimoni Id Testimoni
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id_rekening)
+    public function actionDelete($id_testimoni)
     {
-        $this->findModel($id_rekening)->delete();
+        $this->findModel($id_testimoni)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Rekening model based on its primary key value.
+     * Finds the Testimoni model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id_rekening Id Rekening
-     * @return Rekening the loaded model
+     * @param int $id_testimoni Id Testimoni
+     * @return Testimoni the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_rekening)
+    protected function findModel($id_testimoni)
     {
-        if (($model = Rekening::findOne(['id_rekening' => $id_rekening])) !== null) {
+        if (($model = Testimoni::findOne(['id_testimoni' => $id_testimoni])) !== null) {
             return $model;
         }
 
